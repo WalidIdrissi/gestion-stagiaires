@@ -5,6 +5,7 @@ use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\StagiaireController;
 use App\Http\Controllers\EncadrantController;
 use App\Http\Controllers\TravauxController;
+use App\Http\Controllers\RapporteController;
 
 Route::get('/home', function () {return view('home');})->name('home');
 
@@ -54,5 +55,13 @@ Route::put('/travaux/{travaux}', TravauxController::class .'@update')->name('tra
 Route::get('/travaux/{travaux}/edit', TravauxController::class .'@edit')->name('travaux.edit');
 Route::delete('/travaux/{travaux}', TravauxController::class .'@destroy')->name('travaux.destroy');
 Route::post('/travaux', TravauxController::class .'@store')->name('travaux.store');
+
+//rapporte
+Route::get('/rapporte', RapporteController::class .'@index')->name('rapporte.index');
+Route::get('/rapporte/create/', RapporteController::class . '@create')->name('rapporte.create');
+Route::put('/rapporte/{rapporte}', RapporteController::class .'@update')->name('rapporte.update');
+Route::get('/rapporte/{rapporte}/edit', RapporteController::class .'@edit')->name('rapporte.edit');
+Route::delete('/rapporte/{rapporte}', RapporteController::class .'@destroy')->name('rapporte.destroy');
+Route::post('/rapporte', RapporteController::class .'@store')->name('rapporte.store');
 
 });

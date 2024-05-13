@@ -82,9 +82,10 @@
 <ul>
     {{-- <img src="https://cdn-icons-png.flaticon.com/512/3264/3264289.png" alt="" class="img" > --}}
     <li><a href="{{url('/admin/home')}}"><i class="fas fa-home mr-1"></i> &nbsp;Index</a></li>
-    <li><a href="{{ route('demande.index') }}"><i class="far fa-file-alt"></i>&nbsp;Demandestage</a></li>
+    <li><a href="{{ route('demande.index') }}"><i class="fas fa-envelope"></i>&nbsp;Demande stage</a></li>
     <li><a href="{{ route('stagiaire.index') }}"><i class="fas fa-users mr-1"></i>&nbsp;Stagiaire</a></li>
     <li><a href="{{ route('travaux.index') }}"><i class="fas fa-tasks"></i>&nbsp;Travaux</a></li>
+    <li><a href="{{ route('rapporte.index') }}"><i class="fas fa-file-alt"></i>&nbsp;Rapporte</a></li>
     <li><a href="{{ route('encadrant.index') }}"><i class="fas fa-user-tie"></i>&nbsp;Encadrant</a></li>
     <li>
         <form id="logoutForm" method="POST" action="{{ route('logout') }}">

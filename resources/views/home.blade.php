@@ -19,7 +19,7 @@
         <div class="card-container" style="margin-left: 18%">
             <div class="card col-md-6 offset-md-3" style="width: 18rem;">
                 <div class="card-body" style="box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);">
-                  <h5 class="card-title"><p>Demandes de stage &nbsp; &nbsp; &nbsp; &nbsp; <i class="fas fa-book mr-1"></i></p></h5>
+                  <h5 class="card-title"><p>Demandes de stage &nbsp; &nbsp; &nbsp; &nbsp; <i class="fas fa-envelope"></i></p></h5>
                   <h3 class="card-text">{{ App\Models\Demande::count() }}</h3>
                   <a href="{{ route('demande.index') }}" class="small-box-footer" style="text-decoration: none;">Plus d'informations <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
