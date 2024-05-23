@@ -18,9 +18,7 @@ return new class extends Migration
             $table->foreign('stagiaire_id')->references('id')->on('stagiaires')->onDelete('cascade');
             $table->unsignedBigInteger('encadrant_id');
             $table->foreign('encadrant_id')->references('id')->on('encadrants')->onDelete('cascade');
-            // $table->date('date_debut');
-            // $table->date('date_fin');
-            $table->string('description'); //->nullable()->change();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

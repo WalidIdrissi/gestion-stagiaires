@@ -5,6 +5,9 @@ return [
     'email' => 'Le champ :attribute doit être une adresse email valide.',
     'numeric' => 'Le champ :attribute doit être un nombre.',
     'date' => 'Le champ :attribute doit être une date valide.',
+    'max' => [
+        'numeric' => 'Le champ :attribute ne peut pas être supérieur à :max.',
+    ],
     // Ajoutez d'autres traductions ici...
     'attributes' => [
         'nom' => 'nom',
@@ -27,6 +30,7 @@ return [
         'description' => 'description',
         'unique' => 'L\'adresse email :attribute est déjà utilisée.',
         'failed' => 'Ces identifiants ne correspondent pas à nos enregistrements.',
+        'note_globale' => 'note globale',
     ],
     'after_or_equal' => [
         'date' => 'La date de fin doit être postérieure à la date de début.',

@@ -6,6 +6,9 @@ use App\Http\Controllers\StagiaireController;
 use App\Http\Controllers\EncadrantController;
 use App\Http\Controllers\TravauxController;
 use App\Http\Controllers\RapporteController;
+use App\Http\Controllers\EvaluationController;
+
+
 
 Route::get('/home', function () {return view('home');})->name('home');
 
@@ -63,5 +66,13 @@ Route::put('/rapporte/{rapporte}', RapporteController::class .'@update')->name('
 Route::get('/rapporte/{rapporte}/edit', RapporteController::class .'@edit')->name('rapporte.edit');
 Route::delete('/rapporte/{rapporte}', RapporteController::class .'@destroy')->name('rapporte.destroy');
 Route::post('/rapporte', RapporteController::class .'@store')->name('rapporte.store');
+
+// Évaluations de stage
+Route::get('/evaluations', EvaluationController::class . '@index')->name('evaluations.index');
+Route::get('/evaluations/create', EvaluationController::class .'@create')->name('evaluations.create');
+Route::put('/evaluations/{evaluation}', EvaluationController::class .'@update')->name('evaluations.update');
+Route::get('/evaluations/{evaluation}/edit',EvaluationController::class .'@edit')->name('evaluations.edit');
+Route::delete('/evaluations/{evaluation}', EvaluationController::class .'@destroy')->name('evaluations.destroy');
+Route::post('/evaluations', EvaluationController::class . '@store')->name('evaluations.store');
 
 });

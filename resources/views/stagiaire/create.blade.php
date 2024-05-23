@@ -13,7 +13,6 @@
 <h1>Ajouter stagiaire</h1>
 <br>
 <div class="div1">
-
 <form action="{{ route('stagiaire.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 

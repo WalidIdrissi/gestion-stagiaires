@@ -20,5 +20,9 @@ class Stagiaire extends Model
     {
         return $this->demande->nom . ' ' . $this->demande->prenom;
     }
+    public function evaluation()
+    {
+        return $this->hasMany(Evaluation::class, 'stagiaire_id');
+    }
 
 }

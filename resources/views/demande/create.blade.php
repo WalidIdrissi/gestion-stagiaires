@@ -1,80 +1,146 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-    h1{
-        text-align: center
-    }
-    .div1{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-<title>Ajouter une demande de stage</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{ asset('css/action_style.css') }}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Ajouter une demande de stage</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        body{
+            background-color: #bbecf3;
+        }
+        .form-container {
+            margin: 0 auto;
+            max-width: 950px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2%;
+        }
+    </style>
+</head>
+<body>
 <h1>Ajouter une demande de stage</h1>
-<br>
-<div class="div1">
+<div class="form-container">
+    <form action="{{ route('demande.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="row">
+        <div class="col-md-6">
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom">
+            @error('nom')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
-<form action="{{ route('demande.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+        <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Prénom">
+            @error('prenom')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
-    <div class="form-module">
-        <input type="text" name="nom" id="nom" class="form-control" placeholder="nom"><br>
-        @error('nom')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        <input type="text" name="prenom" id="prenom" class="form-control" placeholder="prenom"><br>
-        @error('prenom')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        <input type="text" name="adresse" id="adresse" class="form-control" placeholder="adresse"><br>
-        @error('adresse')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        <input type="text" name="ville" id="ville" class="form-control" placeholder="ville"><br>
-        @error('ville')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        <input type="email" name="email" id="email" class="form-control" placeholder="email"><br>
-        @error('email')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        <input type="text" name="telephone" id="telephone" class="form-control" placeholder="telephone"><br>
-        @error('telephone')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        <input type="text" name="ecole" id="ecole" class="form-control" placeholder="ecole"><br>
-        @error('ecole')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        <label for="demande_stage">demande_stage</label>
-        <input type="file" name="demande_stage" id="demande_stage" class="form-control" placeholder="demande_stage"><br>
-        <label for="attestation_assurance">attestation_assurance</label>
-        <input type="file" name="attestation_assurance" id="attestation_assurance" class="form-control" placeholder="attestation_assurance"><br>
-        <label for="photo">photo</label>
-        <input type="file" name="photo" id="photo" class="form-control" placeholder="photo"><br>
-        <label for="cv">cv</label>
-        <input type="file" name="cv" id="cv" class="form-control" placeholder="cv"><br>
-        <label for="date_debut">date debut</label>
-        <input type="date" name="date_debut" id="date_debut" class="form-control" placeholder="date_debut"><br>
-        @error('date_debut')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        <label for="date_fin">date fin</label>
-        <input type="date" name="date_fin" id="date_fin" class="form-control" placeholder="date_fin"><br>
-        @error('date_fin')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        <input type="text" name="formateur" id="formateur" class="form-control" placeholder="formateur"><br>
-        @error('formateur')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
-        {{-- <label for="status">Statut</label><br>
-        <input type="text" name="status" id="status" class="form-control" value="en_cours" readonly> --}}
+        <div class="form-group">
+            <label for="adresse">Adresse</label>
+            <input type="text" name="adresse" id="adresse" class="form-control" placeholder="Adresse">
+            @error('adresse')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
+        <div class="form-group">
+            <label for="ville">Ville</label>
+            <input type="text" name="ville" id="ville" class="form-control" placeholder="Ville">
+            @error('ville')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
 
-    </div><br>
-    <a href="javascript:history.back()" class="btn btn-secondary">Retour</a>
-    <button type="submit" class="btn btn-success">Ajouter</button>
-</form>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input type="text" name="telephone" id="telephone" class="form-control" placeholder="Téléphone">
+            @error('telephone')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="ecole">École</label>
+            <input type="text" name="ecole" id="ecole" class="form-control" placeholder="École">
+            @error('ecole')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        </div>
+        <div class="col-md-6">
+        <div class="form-group">
+            <label for="date_debut">Date de début</label>
+            <input type="date" name="date_debut" id="date_debut" class="form-control">
+            @error('date_debut')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="date_fin">Date de fin</label>
+            <input type="date" name="date_fin" id="date_fin" class="form-control">
+            @error('date_fin')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="formateur">Formateur</label>
+            <input type="text" name="formateur" id="formateur" class="form-control" placeholder="Formateur">
+            @error('formateur')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="demande_stage">Demande de Stage</label>
+            <input type="file" name="demande_stage" id="demande_stage" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="attestation_assurance">Attestation Assurance</label>
+            <input type="file" name="attestation_assurance" id="attestation_assurance" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="photo">Photo</label>
+            <input type="file" name="photo" id="photo" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="cv">CV</label>
+            <input type="file" name="cv" id="cv" class="form-control">
+        </div>
+
+        </div>
+        </div>
+
+        <div class="btn-container">
+            <a href="javascript:history.back()" class="btn btn-secondary">Retour</a>
+            <button type="submit" class="btn btn-success">Ajouter</button>
+        </div>
+
+    </form>
 </div>
-
+</body>
+</html>

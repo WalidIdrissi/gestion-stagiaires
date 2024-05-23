@@ -14,7 +14,8 @@ class DemandeController extends Controller
      */
     public function index()
     {
-        $demandes = Demande::all();
+        $demandes = Demande::orderBy('created_at', 'desc')->get();
+        // $demandes = Demande::all();
         return view('demande.index', compact('demandes'));
     }
 
@@ -124,7 +125,7 @@ class DemandeController extends Controller
      * Update the specified resource in storage.
      */
 
-    public function update(Request $request, Demande $demande)
+    public function update(Request $request, Demande $demande , Stagiaire $stagiaire)
     {
         $request->validate([
             'nom' => 'required|string',
@@ -165,7 +166,7 @@ class DemandeController extends Controller
 
         $demande->save();
 
-        return redirect()->route('demande.index')->with('modif', 'demande mis à jour avec succès.');
+        return redirect()->route('stagiaire.index')->with('modif', 'stagiaire mis à jour avec succès.');
     }
 
     private function updateFile(Request $request, $field, $demande)
@@ -192,15 +193,15 @@ class DemandeController extends Controller
     public function validateDemande($id)
     {
         $demande = Demande::findOrFail($id);
-        
+
         // Vérifier si la demande n'a pas déjà été validée
         if ($demande->statut !== 'valide') {
             $demande->update(['statut' => 'valide']);
-        
+
             $stagiaire = Stagiaire::create([
                 'demande_id' => $demande->id,
             ]);
-        
+
             if ($stagiaire) {
                 return redirect()->route('stagiaire.index')->with('success', 'Demande validée avec succès.');
             } else {
